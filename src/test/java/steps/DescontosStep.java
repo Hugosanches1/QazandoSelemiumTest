@@ -12,8 +12,7 @@ public class DescontosStep {
 
     @Dado("^que estou no site da qazando$")
     public void que_estou_no_site_da_qazando() throws Throwable {
-        //System.setProperty("webdriver.gecko.driver","geckodriver.exe");
-       // driver = new FirefoxDriver();
+
         driver.get("https://qazando.com.br/curso.html");
     }
 
