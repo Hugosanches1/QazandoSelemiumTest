@@ -3,14 +3,12 @@ package steps;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import pages.HomePage;
-import runner.RunCucumberTeste;
+import runner.RunCucumberTest;
 
 
-public class DescontosStep extends RunCucumberTeste {
+public class DescontosStep extends RunCucumberTest {
 
     HomePage homePage = new HomePage(driver);
 
@@ -34,5 +32,19 @@ public class DescontosStep extends RunCucumberTeste {
     public void eu_vejo_o_código_de_desconto() throws Throwable {
         homePage.verificarCupomDesconto("QAZANDO15OFF");
 
+    }
+
+    @Dado("^que tenho cupom gerado$")
+    public void que_tenho_cupom_gerado() throws Throwable {
+        homePage.acessarAplicaçcao();
+        homePage.scrollDown();
+        homePage.preencherEmail("hugosanches1@hotmail.com");
+        homePage.clicarEmGanharDesconto();
+
+    }
+
+    @Quando("^eu falho$")
+    public void eu_falho() throws Throwable {
+        driver.findElement(By.xpath("asasas")).click();
     }
 }
